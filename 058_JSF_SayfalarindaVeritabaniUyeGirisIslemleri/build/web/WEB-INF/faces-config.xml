@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <description>UYE GIRIS SAYFASI</description>
+        <from-view-id>uyegirisi.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{ub.uyeGirisiniDenetle()}</from-action>
+            <from-outcome>gecerli</from-outcome>
+            <to-view-id>basarili.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-action>#{ub.uyeGirisiniDenetle()}</from-action>
+            <from-outcome>gecersiz</from-outcome>
+            <to-view-id>basarisiz.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <description>BASARISIZ UYE GIRIS SAYFASI</description>
+        <from-view-id>basarisiz.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{ub.uyeGirisiniDenetle()}</from-action>
+            <from-outcome>gecerli</from-outcome>
+            <to-view-id>basarili.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-action>#{ub.uyeGirisiniDenetle()}</from-action>
+            <from-outcome>gecersiz</from-outcome>
+            <to-view-id>basarisiz.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <description>BAŞARILI UYE GIRIS SAYFASI</description>
+        <from-view-id>basarili.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{ub.test()}</from-action>
+            <from-outcome>kapali</from-outcome>
+            <to-view-id>uyegirisi.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
